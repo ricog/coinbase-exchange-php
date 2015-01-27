@@ -1,0 +1,11 @@
+{
+    "name": "ricog/coinbase-exchange",
+    "description": "Coinbase Exchange API library",
+    "keywords": ["bitcoin", "coinbase"],
+    "homepage": "http://exchange.coinbase.com",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-0": {"CoinbaseExchange": "lib/"}
+    }
+}
