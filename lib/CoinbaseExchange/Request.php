@@ -1,11 +1,7 @@
 <?php
 
 class CoinbaseExchange_Request {
-	public function call($url, $method, $params = array()) {
-		$queryString = http_build_query($params);
-        $headers = array(
-            'User-Agent: CoinbaseExchangePHP/v0.1'
-        );
+	public function call($url, $method, $headers, $body = '') {
 		$curl = curl_init();
 		$options = array(
 			CURLOPT_URL => $url,
@@ -16,20 +12,15 @@ class CoinbaseExchange_Request {
         $method = strtolower($method);
         if ($method == 'get') {
             $options[CURLOPT_HTTPGET] = 1;
-            if ($queryString) {
-                $options[CURLOPT_URL] .= "?" . $queryString;
-            }
         } else if ($method == 'post') {
             $options[CURLOPT_POST] = 1;
-            $options[CURLOPT_POSTFIELDS] = $queryString;
+            $options[CURLOPT_POSTFIELDS] = $body;
+
         } else if ($method == 'delete') {
             $options[CURLOPT_CUSTOMREQUEST] = "DELETE";
-            if ($queryString) {
-                $options[CURLOPT_URL] .= "?" . $queryString;
-            }
         } else if ($method == 'put') {
             $options[CURLOPT_CUSTOMREQUEST] = "PUT";
-            $options[CURLOPT_POSTFIELDS] = $queryString;
+            $options[CURLOPT_POSTFIELDS] = $body;
         }
 		curl_setopt_array($curl, $options);
 		$response = curl_exec($curl);
