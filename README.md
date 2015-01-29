@@ -16,7 +16,7 @@ Require the library in your `composer.json`. ([What is Composer?](https://getcom
 
 ### Manual Install
 
-Download the package and require `lib/CoinbaseExchange.php`.
+Download the [latest release](https://github.com/ricog/coinbase-exchange-php/releases) and require `lib/CoinbaseExchange.php`.
 
     require_once('lib/CoinbaseExchange.php');
 
@@ -33,8 +33,7 @@ Public endpoints do not require authentication.
 
 ### Private endpoints
 
-Private endpoints require authentication. Create an API key at
-[https://exchange.coinbase.com/settings](https://exchange.coinbase.com/settings).
+Private endpoints require authentication. Create an API key at [https://exchange.coinbase.com/settings](https://exchange.coinbase.com/settings).
 
     $exchange = new CoinbaseExchange();
     $exchange->auth('key', 'passphrase', 'secret');
