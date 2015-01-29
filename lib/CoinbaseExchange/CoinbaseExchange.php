@@ -252,7 +252,7 @@ class CoinbaseExchange {
         try {
             $response = $request->call($url, $method, $headers, $body);
             if ($response['statusCode'] === 200) {
-                $response['body'] = json_decode($response['body']);
+                $response['body'] = json_decode($response['body'], true);
             }
             return $response;
         } catch (Exception $e) {
