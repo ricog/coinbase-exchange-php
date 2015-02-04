@@ -39,9 +39,15 @@ Private endpoints require authentication. Create an API key at [https://exchange
     $exchange->auth('key', 'passphrase', 'secret');
     $exchange->placeOrder('sell', '1200.01', '.25', 'BTC-USD');
 
+## Tests
+
+Tests can be run with:
+
+    ./test/runner.sh
+
 ## TODO
 
 - [x] Implement public endpoints.
 - [x] Implement private trade enpoints.
-- [ ] Add tests.
+- [ ] Add tests (started).
 - [ ] Implement transfer endpoint.
