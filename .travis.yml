@@ -8,5 +8,9 @@ php:
     - 5.6
     - hhvm
 
+script:
+    - composer install
+    - ./test/runner.sh
+
 notifications:
     email: false
