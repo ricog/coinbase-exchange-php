@@ -165,7 +165,7 @@ class CoinbaseExchange {
      *
      * https://docs.exchange.coinbase.com/#products
      */
-    public function products() {
+    public function listProducts() {
         return $this->request('products');
     }
 
