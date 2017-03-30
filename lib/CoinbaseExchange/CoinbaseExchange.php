@@ -1,16 +1,16 @@
 <?php
 
 /**
- * Coinbase Exchange API
+ * Coinbase Exchange - GDAX - API
  *
- * https://docs.exchange.coinbase.com
+ * https://docs.gdax.com
  */
 class CoinbaseExchange {
 
     /**
      * API Endpoint URL
      */
-    public $url = 'https://api.exchange.coinbase.com';
+    public $url = 'https://api.gdax.com';
 
     /**
      * An array of API endpoints
@@ -64,7 +64,7 @@ class CoinbaseExchange {
     /**
      * GET /accounts
      *
-     * https://docs.exchange.coinbase.com/#list-accounts
+     * https://docs.gdax.com/#list-accounts
      */
     public function listAccounts() {
         return $this->request('accounts');
@@ -73,7 +73,7 @@ class CoinbaseExchange {
     /**
      * GET /accounts/<account-id>
      *
-     * https://docs.exchange.coinbase.com/#get-an-account
+     * https://docs.gdax.com/#get-an-account
      */
     public function getAccount($id) {
         return $this->request('account', array('id' => $id));
@@ -82,7 +82,7 @@ class CoinbaseExchange {
     /**
      * GET /accounts/<account-id>/ledger
      *
-     * https://docs.exchange.coinbase.com/#get-account-history
+     * https://docs.gdax.com/#get-account-history
      */
     public function getAccountHistory($id) {
         return $this->request('ledger', array('id' => $id));
@@ -91,7 +91,7 @@ class CoinbaseExchange {
     /**
      * GET /accounts/<account_id>/holds
      *
-     * https://docs.exchange.coinbase.com/#get-holds
+     * https://docs.gdax.com/#get-holds
      */
     public function getHolds($id) {
         return $this->request('holds', array('id' => $id));
@@ -100,7 +100,7 @@ class CoinbaseExchange {
     /**
      * POST /orders
      *
-     * https://docs.exchange.coinbase.com/#place-a-new-order
+     * https://docs.gdax.com/#place-a-new-order
      */
     public function placeOrder($side, $price, $size, $productId) {
         $data = array(
@@ -117,7 +117,7 @@ class CoinbaseExchange {
     /**
      * DELETE /orders/<order-id>
      *
-     * https://docs.exchange.coinbase.com/#cancel-an-order
+     * https://docs.gdax.com/#cancel-an-order
      */
     public function cancelOrder($id) {
         return $this->request('cancel', array('id' => $id));
@@ -126,7 +126,7 @@ class CoinbaseExchange {
     /**
      * GET /orders
      *
-     * https://docs.exchange.coinbase.com/#list-open-orders
+     * https://docs.gdax.com/#list-open-orders
      */
     public function listOrders() {
         return $this->request('orders');
@@ -136,7 +136,7 @@ class CoinbaseExchange {
     /**
      * GET /orders/<order-id>
      *
-     * https://docs.exchange.coinbase.com/#get-an-order
+     * https://docs.gdax.com/#get-an-order
      */
     public function getOrder($id) {
         return $this->request('order', array('id' => $id));
@@ -145,7 +145,7 @@ class CoinbaseExchange {
     /**
      * GET /fills
      *
-     * https://docs.exchange.coinbase.com/#fills
+     * https://docs.gdax.com/#fills
      */
     public function listFills() {
         return $this->request('fills');
@@ -155,7 +155,7 @@ class CoinbaseExchange {
     /**
      * POST /transfers
      *
-     * https://docs.exchange.coinbase.com/#transfer-funds
+     * https://docs.gdax.com/#transfer-funds
      */
     public function transferFunds() {
     }
@@ -163,7 +163,7 @@ class CoinbaseExchange {
     /**
      * GET /products
      *
-     * https://docs.exchange.coinbase.com/#products
+     * https://docs.gdax.com/#products
      */
     public function listProducts() {
         return $this->request('products');
@@ -173,7 +173,7 @@ class CoinbaseExchange {
     /**
      * GET /products/<product-id>/book
      *
-     * https://docs.exchange.coinbase.com/#get-product-order-book
+     * https://docs.gdax.com/#get-product-order-book
      */
     public function getOrderBook($product = 'BTC-USD') {
         //$this->validate('product', $product);
@@ -184,7 +184,7 @@ class CoinbaseExchange {
     /**
      * GET /products/<product-id>/ticker
      *
-     * https://docs.exchange.coinbase.com/#get-product-ticker
+     * https://docs.gdax.com/#get-product-ticker
      */
     public function getTicker($product = 'BTC-USD') {
         return $this->request('ticker', array('id' => $product));
@@ -193,7 +193,7 @@ class CoinbaseExchange {
     /**
      * GET /products/<product-id>/trades
      *
-     * https://docs.exchange.coinbase.com/#get-trades
+     * https://docs.gdax.com/#get-trades
      */
     public function listTrades($product = 'BTC-USD') {
         return $this->request('trades', array('id' => $product));
@@ -202,7 +202,7 @@ class CoinbaseExchange {
     /**
      * GET /products/<product-id>/candles
      *
-     * https://docs.exchange.coinbase.com/#get-historic-rates
+     * https://docs.gdax.com/#get-historic-rates
      */
     public function getHistoricRates($product = 'BTC-USD') {
         return $this->request('rates', array('id' => $product));
@@ -211,7 +211,7 @@ class CoinbaseExchange {
     /**
      * GET /products/<product-id>/stats
      *
-     * https://docs.exchange.coinbase.com/#get-24hr-stats
+     * https://docs.gdax.com/#get-24hr-stats
      */
     public function get24hrStats($product = 'BTC-USD') {
         return $this->request('stats', array('id' => $product));
@@ -220,7 +220,7 @@ class CoinbaseExchange {
     /**
      * GET /currencies
      *
-     * https://docs.exchange.coinbase.com/#get-currencies
+     * https://docs.gdax.com/#get-currencies
      */
     public function listCurrencies() {
         return $this->request('currencies');
@@ -229,7 +229,7 @@ class CoinbaseExchange {
     /**
      * GET /time
      *
-     * https://docs.exchange.coinbase.com/#time
+     * https://docs.gdax.com/#time
      */
     public function getTime() {
         return $this->request('time');
