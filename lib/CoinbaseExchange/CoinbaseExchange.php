@@ -113,6 +113,23 @@ class CoinbaseExchange {
         );
         return $this->request('place', $data);
     }
+	
+	/**
+     * POST /orders
+     *
+     * https://docs.gdax.com/#place-a-new-order
+     */
+    public function placeOrderMarket($side, $size, $productId) {
+        $data = array(
+            //'client_oid' => '', // client generated UUID
+			'type' => 'market',
+            'size' => $size, // must honor base_min_size and base_max_size
+            'side' => $side, // buy or sell
+            'product_id' => $productId
+            //'stp' => 'dc' // Or one of co, cn, cb
+        );
+        return $this->request('place', $data);
+    }
 
     /**
      * DELETE /orders/<order-id>
